@@ -20,10 +20,15 @@ folder_path = "D:\\Cell electrotaxis\\Test-sorting\\a"
 images = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
 
 for image in images:
-	file_name = image.split('.')[0] #find the file name without the subname
-	time_number = file_name.split('t')[1]
-	prexy_name = file_name.split('t')[0]
-	xy_name = prexy_name.split('xy')[1]
+	file_name = image.split('.')[0] #find the file name without the 
+	stringtemp=file_name.split('xy')
+	file_parameters = stringtemp[1].split('t')
+	xy_name=file_parameters[0]
+	t_name=file_parameters[1]
+
+	#time_number = file_name.split('t')[1]
+	#prexy_name = file_name.split('t')[0]
+	#xy_name = prexy_name.split('xy')[1]
 	new_path = os.path.join(folder_path, xy_name)
 	if not os.path.exists(new_path):
 		os.makedirs(new_path)
